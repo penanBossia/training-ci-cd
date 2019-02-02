@@ -40,3 +40,12 @@ services:
     image: sonar
     ports:
     - "5002:9000"
+  agent-docker:
+   build:
+     context: tools/docker-agent
+     dockerfile: Dockerfile
+   container_name: agent-docker
+   image: agent-docker
+   ports:
+   - "5005:22"
+   tty: true
