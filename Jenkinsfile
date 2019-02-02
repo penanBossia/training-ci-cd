@@ -5,7 +5,7 @@ node('agent-docker'){
 
     def gradle = './gradlew'
 
-    ws("workspace/${env.JOB_NAME}/api"){
+    ws("workspace/${env.JOB_NAME}"){
 
 
         stage('build'){
