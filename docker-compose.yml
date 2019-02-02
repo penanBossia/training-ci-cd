@@ -1,0 +1,42 @@
+version: '2'
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: api
+    container_name: api
+    ports:
+    - "5000:8080"
+  gitlab:
+    build:
+      context: tools/gitlab
+      dockerfile: Dockerfile
+    container_name: gitlab
+    image: gitlab
+    ports:
+    - "5001:80"
+  jenkins:
+    build:
+      context: tools/jenkins
+      dockerfile: Dockerfile
+    container_name: jenkins
+    image: jenkins/jenkins
+    ports:
+    - "5004:8080"
+  artifactory:
+    build:
+      context: tools/artifactory
+      dockerfile: Dockerfile
+    container_name: artifactory
+    image: artifactory
+    ports:
+    - "5003:8081"
+  sonar:
+    build:
+      context: tools/sonar
+      dockerfile: Dockerfile
+    container_name: sonar
+    image: sonar
+    ports:
+    - "5002:9000"
